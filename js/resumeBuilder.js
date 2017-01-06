@@ -35,6 +35,62 @@ var bio = {
   }
 };
 
+var education = {
+  schools: [
+    {
+      name: "Cal Poly",
+      location: "San Luis Obispo",
+      degree: "Bachelor of Science",
+      majors: ["Architectural Engineering"],
+      dates: "September 2012 - June 2015",
+      url: "http://www.calpoly.edu/"
+    },
+    {
+      name: "Cal Poly2",
+      location: "San Luis Obispo",
+      degree: "Bachelor of Science",
+      majors: ["Architectural Engineering"],
+      dates: "September 2012 - June 2015",
+      url: "http://www.calpoly.edu/"
+    }
+  ],
+  onlineCourses: [
+    {
+      title: "Front End Developer Nanodegree",
+      school: "Udacity",
+      dates: "September 2016 - Present",
+      url: "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+    },
+    {
+      title: "Front End Developer Nanodegree2",
+      school: "Udacity",
+      dates: "September 2016 - Present",
+      url: "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+    }
+  ],
+  display: function() {
+    $('#education').append(
+      this.schools.map(function(school, i) {
+        return $(HTMLschoolStart)
+          .append(replaceHolder(school.name, HTMLschoolName)
+            .concat(replaceHolder(school.degree, HTMLschoolDegree))
+            .concat(replaceHolder(school.dates, HTMLschoolDates))
+            .concat(replaceHolder(school.location, HTMLschoolLocation))
+            .concat(replaceHolder(school.majors, HTMLschoolMajor))
+          )
+      })
+    ).append(HTMLonlineClasses).append(
+      this.onlineCourses.map(function(course, i) {
+        return $(HTMLschoolStart)
+          .append(replaceHolder(course.title, HTMLonlineTitle)
+          .concat(replaceHolder(course.school, HTMLonlineSchool))
+          .concat(replaceHolder(course.dates, HTMLonlineDates))
+          .concat(replaceHolder(course.url, HTMLonlineURL))
+        )
+      })
+    );
+  }
+}
 
 var work = {
   jobs: [
@@ -69,6 +125,7 @@ var work = {
 };
 
 bio.display();
+education.display();
 work.display();
 
 function replaceHolder(value, helper, placeholder) {
