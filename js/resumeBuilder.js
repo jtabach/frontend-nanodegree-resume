@@ -39,10 +39,12 @@ var work = {
     $("#workExperience").append(
       work.jobs.map(function(job, i) {
         return $(HTMLworkStart)
-          .append(replaceHolder(job.employer, HTMLworkEmployer) + replaceHolder(job.title, HTMLworkTitle))
-          .append(replaceHolder(job.location, HTMLworkLocation))
-          .append(replaceHolder(job.dates, HTMLworkDates))
-          .append(replaceHolder(job.description, HTMLworkDescription));
+          .append(replaceHolder(job.employer, HTMLworkEmployer)
+            .concat(replaceHolder(job.title, HTMLworkTitle))
+            .concat(replaceHolder(job.location, HTMLworkLocation))
+            .concat(replaceHolder(job.dates, HTMLworkDates))
+            .concat(replaceHolder(job.description, HTMLworkDescription))
+          );
       })
     );
   }
