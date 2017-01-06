@@ -9,7 +9,7 @@ var bio = {
     email: "jeff.n.tabachnick@gmail.com",
     github: "jtabach",
     twitter: "@jtabach",
-    location: "San Francisco"
+    location: "San Francisco, CA"
   },
   welcomeMessage: "Hello, my name a Jeff!",
   skills: ["Hockey", "Snowboarding", "Guitar", "Acting"],
@@ -35,11 +35,41 @@ var bio = {
   }
 };
 
+var projects = {
+  projects: [
+    {
+      title: "GroupFFL",
+      dates: "January 2015 - Present",
+      description: "Social medai platform for fantasy football",
+      images: ['images/197x148.gif']
+    },
+    {
+      title: "Nifty Sort",
+      dates: "January 2015 - Present",
+      description: "Data Visualization for comparing products by unique variables",
+      images: ['images/197x148.gif']
+    }
+  ],
+
+  display: function() {
+    $('#projects').append(
+      this.projects.map(function(project, i) {
+        return $(HTMLprojectStart)
+          .append(replaceHolder(project.title, HTMLprojectTitle)
+            .concat(replaceHolder(project.dates, HTMLprojectDates))
+            .concat(replaceHolder(project.description, HTMLprojectDescription))
+            .concat(replaceHolder(project.images, HTMLprojectImage))
+          )
+      })
+    )
+  }
+};
+
 var education = {
   schools: [
     {
       name: "Cal Poly",
-      location: "San Luis Obispo",
+      location: "San Luis Obispo, CA",
       degree: "Bachelor of Science",
       majors: ["Architectural Engineering"],
       dates: "September 2012 - June 2015",
@@ -47,7 +77,7 @@ var education = {
     },
     {
       name: "Cal Poly2",
-      location: "San Luis Obispo",
+      location: "Denver, CO",
       degree: "Bachelor of Science",
       majors: ["Architectural Engineering"],
       dates: "September 2012 - June 2015",
@@ -83,28 +113,28 @@ var education = {
       this.onlineCourses.map(function(course, i) {
         return $(HTMLschoolStart)
           .append(replaceHolder(course.title, HTMLonlineTitle)
-          .concat(replaceHolder(course.school, HTMLonlineSchool))
-          .concat(replaceHolder(course.dates, HTMLonlineDates))
-          .concat(replaceHolder(course.url, HTMLonlineURL))
-        )
+            .concat(replaceHolder(course.school, HTMLonlineSchool))
+            .concat(replaceHolder(course.dates, HTMLonlineDates))
+            .concat(replaceHolder(course.url, HTMLonlineURL))
+          )
       })
     );
   }
-}
+};
 
 var work = {
   jobs: [
     {
       employer: "Udacity",
       title: "Front End Engineer",
-      location: "Mountain View",
+      location: "Mountain View, CA",
       dates: "Currently Employed",
       description: "Super Awesome"
     },
     {
       employer: "AUdacity",
       title: "Front End Engineer",
-      location: "Mountain View",
+      location: "San Francisco, CA",
       dates: "Currently Employed",
       description: "Super Awesome"
     }
@@ -125,8 +155,11 @@ var work = {
 };
 
 bio.display();
+projects.display();
 education.display();
 work.display();
+$('#mapDiv').append(googleMap);
+initializeMap();
 
 function replaceHolder(value, helper, placeholder) {
   var placeholder = placeholder || "%data%";
