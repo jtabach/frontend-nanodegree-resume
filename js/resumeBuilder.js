@@ -38,15 +38,19 @@ var work = {
   display: function() {
     $("#workExperience").append(
       work.jobs.map(function(job, i) {
-        var formattedEmployer = HTMLworkEmployer.replace('%data%', job.employer);
-        var formattedTitle = HTMLworkTitle.replace('%data%', job.title);
-        var formattedLocation = HTMLworkLocation.replace('%data%', job.location);
-        var formattedDates = HTMLworkDates.replace('%data%', job.dates);
-        var formattedDescription = HTMLworkDescription.replace('%data%', job.description);
-        return $(HTMLworkStart).append(formattedEmployer + formattedTitle + formattedDates + formattedLocation + formattedDescription);
+        return $(HTMLworkStart)
+          .append(replaceHolder(job.employer, HTMLworkEmployer) + replaceHolder(job.title, HTMLworkTitle))
+          .append(replaceHolder(job.location, HTMLworkLocation))
+          .append(replaceHolder(job.dates, HTMLworkDates))
+          .append(replaceHolder(job.description, HTMLworkDescription));
       })
     );
   }
 };
 
 work.display();
+
+function replaceHolder(value, helper, placeholder) {
+  var placeholder = placeholder || "%data%";
+  return helper.replace(placeholder, value);
+}
