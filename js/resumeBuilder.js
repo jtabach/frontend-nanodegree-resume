@@ -92,6 +92,7 @@ var education = {
       this.schools.map(function(school, i) {
         return $(HTMLschoolStart)
           .append(replaceHolder(school.name, HTMLschoolName)
+            .replace('#', school.url)
             .concat(replaceHolder(school.degree, HTMLschoolDegree))
             .concat(replaceHolder(school.dates, HTMLschoolDates))
             .concat(replaceHolder(school.location, HTMLschoolLocation))
