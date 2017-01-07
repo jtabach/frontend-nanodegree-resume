@@ -12,7 +12,7 @@ var bio = {
     location: "San Francisco, CA"
   },
   welcomeMessage: "Hello, my name a Jeff!",
-  skills: ["Hockey", "Snowboarding", "Guitar", "Acting"],
+  skills: ["JavaScript", "HTML", "CSS", "React"],
   biopic: "images/fry.jpg",
   display: function() {
     $('#header').prepend(replaceHolder(this.name, HTMLheaderName)
@@ -76,23 +76,17 @@ var education = {
       url: "http://www.calpoly.edu/"
     },
     {
-      name: "Cal Poly2",
-      location: "Denver, CO",
-      degree: "Bachelor of Science",
-      majors: ["Architectural Engineering"],
-      dates: "September 2012 - June 2015",
-      url: "http://www.calpoly.edu/"
+      name: "Coding House",
+      location: "Fremont, CA",
+      degree: "NA",
+      majors: ["Computer Science"],
+      dates: "January 2015 - April 2015",
+      url: "http://jefftabachnick.com/"
     }
   ],
   onlineCourses: [
     {
       title: "Front End Developer Nanodegree",
-      school: "Udacity",
-      dates: "September 2016 - Present",
-      url: "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
-    },
-    {
-      title: "Front End Developer Nanodegree2",
       school: "Udacity",
       dates: "September 2016 - Present",
       url: "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
@@ -132,11 +126,11 @@ var work = {
       description: "Super Awesome"
     },
     {
-      employer: "AUdacity",
-      title: "Front End Engineer",
-      location: "San Francisco, CA",
-      dates: "Currently Employed",
-      description: "Super Awesome"
+      employer: "Holland Construction",
+      title: "Associate Project Manager",
+      location: "Denver, CO",
+      dates: "June 2015 - December 2015",
+      description: "Not as awesome"
     }
   ],
   display: function() {
