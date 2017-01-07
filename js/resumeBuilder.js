@@ -1,6 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
- */
 var bio = {
   name: "Jeff Tabachnick",
   role: "Front End Engineer",
@@ -23,7 +20,7 @@ var bio = {
     );
     $("#skills").append(
       this.skills.map(function(skill, i) {
-        return replaceHolder(skill, HTMLskills)
+        return replaceHolder(skill, HTMLskills);
       })
     );
     $('#topContacts, #footerContacts').append(replaceHolder(bio.contacts.mobile, HTMLmobile)
@@ -36,8 +33,7 @@ var bio = {
 };
 
 var projects = {
-  projects: [
-    {
+  projects: [{
       title: "GroupFFL",
       dates: "January 2015 - Present",
       description: "Social medai platform for fantasy football",
@@ -59,15 +55,14 @@ var projects = {
             .concat(replaceHolder(project.dates, HTMLprojectDates))
             .concat(replaceHolder(project.description, HTMLprojectDescription))
             .concat(replaceHolder(project.images, HTMLprojectImage))
-          )
+          );
       })
-    )
+    );
   }
 };
 
 var education = {
-  schools: [
-    {
+  schools: [{
       name: "Cal Poly",
       location: "San Luis Obispo, CA",
       degree: "Bachelor of Science",
@@ -84,14 +79,12 @@ var education = {
       url: "http://jefftabachnick.com/"
     }
   ],
-  onlineCourses: [
-    {
-      title: "Front End Developer Nanodegree",
-      school: "Udacity",
-      dates: "September 2016 - Present",
-      url: "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
-    }
-  ],
+  onlineCourses: [{
+    title: "Front End Developer Nanodegree",
+    school: "Udacity",
+    dates: "September 2016 - Present",
+    url: "https://www.udacity.com/course/front-end-web-developer-nanodegree--nd001"
+  }],
   display: function() {
     $('#education').append(
       this.schools.map(function(school, i) {
@@ -101,7 +94,7 @@ var education = {
             .concat(replaceHolder(school.dates, HTMLschoolDates))
             .concat(replaceHolder(school.location, HTMLschoolLocation))
             .concat(replaceHolder(school.majors, HTMLschoolMajor))
-          )
+          );
       })
     ).append(HTMLonlineClasses).append(
       this.onlineCourses.map(function(course, i) {
@@ -110,15 +103,14 @@ var education = {
             .concat(replaceHolder(course.school, HTMLonlineSchool))
             .concat(replaceHolder(course.dates, HTMLonlineDates))
             .concat(replaceHolder(course.url, HTMLonlineURL))
-          )
+          );
       })
     );
   }
 };
 
 var work = {
-  jobs: [
-    {
+  jobs: [{
       employer: "Udacity",
       title: "Front End Engineer",
       location: "Mountain View, CA",
@@ -156,6 +148,6 @@ $('#mapDiv').append(googleMap);
 initializeMap();
 
 function replaceHolder(value, helper, placeholder) {
-  var placeholder = placeholder || "%data%";
+  placeholder = placeholder || "%data%";
   return helper.replace(placeholder, value);
 }
