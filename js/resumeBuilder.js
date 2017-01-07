@@ -148,7 +148,6 @@ projects.display();
 education.display();
 work.display();
 $('#mapDiv').append(googleMap);
-initializeMap();
 
 function replaceHolder(value, helper, placeholder) {
   placeholder = placeholder || "%data%";
