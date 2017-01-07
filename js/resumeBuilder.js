@@ -43,7 +43,7 @@ var projects = {
       title: "Nifty Sort",
       dates: "January 2015 - Present",
       description: "Data Visualization for comparing products by unique variables",
-      images: ['images/197x148.gif']
+      images: ['images/197x148.gif', 'images/197x148.gif']
     }
   ],
 
@@ -54,7 +54,9 @@ var projects = {
           .append(replaceHolder(project.title, HTMLprojectTitle)
             .concat(replaceHolder(project.dates, HTMLprojectDates))
             .concat(replaceHolder(project.description, HTMLprojectDescription))
-            .concat(replaceHolder(project.images, HTMLprojectImage))
+            .concat(project.images.map(function(image,i) {
+              return replaceHolder(image, HTMLprojectImage);
+            }))
           );
       })
     );
